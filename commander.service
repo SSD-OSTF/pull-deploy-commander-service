@@ -2,6 +2,7 @@
 Description=A service reading commands from the given socket
 
 [Service]
+Type=oneshot
 ExecStart=/usr/bin/perl /root/commander.pl
 
 StandardInput=socket

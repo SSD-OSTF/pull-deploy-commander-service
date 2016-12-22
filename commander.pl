@@ -1,31 +1,34 @@
 #!/usr/bin/env perl
 
-my $in = *STDIN;
-my $out = *STDOUT;
+my $in = *STDIN; #STDIN is the Socket
+my $out = *STDOUT; #STDOUT will talk to the journal
 
 $out->print("My printing reaches the outside world\n");
+$out->flush(); #proofing that we actually are talking to someone
 
-while($_ = <$in>) {
-	
-	$out->print("Received: ");
-	$out->print($_);
-	$out->print("\n");
-	
+$_ = <$in>; #read just one line for this moment.
 
-	if($_ == "1") {		
-	    $out->print("I should run the command associated with 1 ;-) \n");
-	#    system("systemctl start someService.service")
-		$out->print("should've started someService.service\n");
-	    
-	} elsif($_ == "2") {
-	    $out->print("I should run the command associated with 2 ;-) \n");
-	#    system("systemctl stop someService.service");
-	    $out->print("shoud've stopped someService.service\n");
+$out->print("Received: ");
+$out->print($_);
+$out->print("\n");
+$out->flush(); #print out what we jus read from stdin
 
-	} else {
-	    $out->print("Oh! did someone just try to trick me?\n");
-	}
+if($_ == "1") {		
+    $out->print("I should run the command associated with 1 ;-) \n");
+    # here all the things happen for command "1"	
+    
 
+
+
+} elsif($_ == "2") {
+    $out->print("I should run the command associated with 2 ;-) \n");
+    # here all the things happen for command "2"	
+
+
+
+} else {
+    $out->print("Oh! did someone just try to trick me?\n");
 }
 
 $out->print("And I'm gone!\n");
+$out->flush();
