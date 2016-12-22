@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 
 my $in = *STDIN;
-my $out  = *STDOUT;
+my $out = *STDOUT;
 
 $out->print("My printing reaches the outside world\n");
 

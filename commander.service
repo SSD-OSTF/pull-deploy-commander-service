@@ -4,9 +4,8 @@ Description=A service reading commands from the given socket
 [Service]
 ExecStart=/usr/bin/perl /root/commander.pl
 
-WorkingDirectory=/home/lenny/temp/systemdStuff
-
 StandardInput=socket
+StandardOutput=journal 
 
 User=root
 Group=root
