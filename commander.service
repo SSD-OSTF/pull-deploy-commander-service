@@ -1,10 +1,12 @@
 [Unit]
-Description=just some service running for some time
+Description=A service reading commands from the given socket
 
 [Service]
-ExecStart=/usr/bin/perl /root/commander.pl /run/commander.sk
+ExecStart=/usr/bin/perl /root/commander.pl
 
 WorkingDirectory=/home/lenny/temp/systemdStuff
+
+StandardInput=socket
 
 User=root
 Group=root
