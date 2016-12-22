@@ -1,0 +1,15 @@
+[Unit]
+Description=just some service running for some time
+
+[Service]
+ExecStart=/usr/bin/perl /root/commander.pl /run/commander.sk
+
+WorkingDirectory=/home/lenny/temp/systemdStuff
+
+User=root
+Group=root
+
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
